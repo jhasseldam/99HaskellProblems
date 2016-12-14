@@ -6,6 +6,6 @@ open System
 
 [<EntryPoint>]
 let main argv = 
-    printfn "%A" (reverse [0 .. 2 .. 55])
+    printfn "%A" (isPalindrome' [1; 2; 3; 5; 3; 2; 1])
     Console.ReadKey() |> ignore
     0 // return an integer exit code

@@ -48,5 +48,24 @@ module OneToTen =
             | [] -> outLst
             | x::xs -> reverseRec xs (x::outLst) 
         reverseRec lst []
+    
     // Cheating
     let reverse' lst = List.rev lst
+
+    /// Problem 6: Is list a palindrome
+    let isPalindrome lst = lst = (reverse lst)
+
+    // The hard way
+    let isPalindrome' lst =
+        let revLst = reverse lst
+        let rec isPalindrome' lst revLst =
+            match (lst, revLst) with
+            | (x::xs), (y::ys) -> if x = y then isPalindrome' xs ys else false
+            | [], [] -> true
+            | [], _::_ -> false // Will never happen but to satisfy compiler warning  
+            | _::_, [] -> false // Will never happen but to satisfy compiler warning
+        isPalindrome' lst revLst
+
+
+        
+    
